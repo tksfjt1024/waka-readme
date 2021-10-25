@@ -24,6 +24,7 @@ show_title = os.getenv("INPUT_SHOW_TITLE")
 commit_message = os.getenv("INPUT_COMMIT_MESSAGE")
 blocks = os.getenv("INPUT_BLOCKS")
 show_time = os.getenv("INPUT_SHOW_TIME")
+langs_num = int(os.getenv("INPUT_LANGS_NUM"))
 
 
 def this_week() -> str:
@@ -74,7 +75,7 @@ def get_stats() -> str:
     except ValueError:
         print("The Data seems to be empty. Please wait for a day for the data to be filled in.")
         return '```text\nNo Activity tracked this Week\n```'
-    for lang in lang_data[:5]:
+    for lang in lang_data[:langs_num]:
         if lang['hours'] == 0 and lang['minutes'] == 0:
             continue
 
